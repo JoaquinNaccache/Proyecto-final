@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using ProyectoFinal1.Models;
+using ProyectoFinal.Models;
 
 namespace ProyectoFinal1.Controllers;
 
@@ -22,10 +22,16 @@ public class HomeController : Controller
     {
         return View();
     }
+     public IActionResult TraerCursos()
+    {
+        ViewBag.todosCursos = BD.TraerCursos();
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        return View();
+    }
+
+    /*[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
+    }*/
 }

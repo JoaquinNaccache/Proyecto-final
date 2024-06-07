@@ -4,9 +4,20 @@ using Dapper;
 namespace ProyectoFinal.Models;
 
 public class Administrador
-{  private static string _connectionString = @"Server=localhost; DataBase=Airdeck;Trusted_Connection=True;";
+{  
 
-       
+   public int idAdministrador{get;set;}
+    public int idUsuario{get;set;}
+    
+
+
+    public Administrador(int IdAdministrador, int IdUsuario)
+    {
+        idUsuario = IdUsuario;
+        idAdministrador = IdAdministrador;
+        
+    }
+    public Administrador () {}    
     
 }
 

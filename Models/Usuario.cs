@@ -4,8 +4,33 @@ using Dapper;
 namespace ProyectoFinal.Models;
 
 public class Usuario
-{  private static string _connectionString = @"Server=localhost; DataBase=Airdeck;Trusted_Connection=True;";
+{  
+    public int idUsuario{get;set;}
+    public int idCurso{get;set;}
+    public string nombreUsuario{get;set;}
+    public string apellido{get;set;}
+    public string contrasena{get;set;}
+    public string email{get;set;}
 
-       
+
+
     
+
+    
+   
+
+
+    public Usuario(int IdUsuario, int IdCurso, string NombreUsuario, string Apellido, string Contrasena, string Email)
+    {
+        idUsuario=IdUsuario;
+        idCurso=IdCurso;
+        nombreUsuario=NombreUsuario;
+        apellido=Apellido;
+        contrasena=Contrasena;
+        email=Email;
+        
+        
+        
+    }
+    public Usuario () {} 
 }

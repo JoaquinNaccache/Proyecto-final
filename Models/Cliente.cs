@@ -4,8 +4,17 @@ using Dapper;
 namespace ProyectoFinal.Models;
 
 public class Cliente
-{  private static string _connectionString = @"Server=localhost; DataBase=Airdeck;Trusted_Connection=True;";
-
-       
+{  
+    public int idCliente{get;set;}
+    public int idUsuario{get;set;}
     
+
+
+    public Cliente(int IdCliente, int IdUsuario)
+    {
+        idUsuario = IdUsuario;
+        idCliente = IdCliente;
+        
+    }
+    public Cliente () {}      
 }
