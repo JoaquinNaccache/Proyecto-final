@@ -24,13 +24,14 @@ public class HomeController : Controller
     }
      public IActionResult TraerCursos()
     {
-        ViewBag.todosCursos = BD.TraerCursos();
+        ViewBag.todosCursos = BD.TraerCursos(idCurso);
 
         return View();
     }
-     public IActionResult VerDetalleCursos()
+     public IActionResult VerDetalleCursos(int idCurso)
     {
-        ViewBag.todosCursos = BD.TraerCursos();
+
+        ViewBag.todosCursos = BD.TraerCursos(idCurso);
 
         return View();
     }

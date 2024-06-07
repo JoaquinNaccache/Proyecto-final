@@ -4,16 +4,17 @@ using Dapper;
 namespace ProyectoFinal1.Models;
 
 public class BD
-{  private static string _connectionString = @"Server=localhost; DataBase=Airdeck;Trusted_Connection=True;";
+{  private static string _connectionString = @"Server=localhost; DataBase=edu+;Trusted_Connection=True;";
 
-        public static List<Cursos> TraerCursos() 
+        public static List<Cursos> TraerCursos(int idCurso) 
     {
         List<Cursos>  listadocursos = null;
         using(SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT * FROM Cursos";
+            string sql = "SELECT * FROM Cursos Where idCurso = @idCurso";
             listadocursos = db.Query<Cursos>(sql).ToList();
         }
+        //falta poner el value idCurso = @idCurso
         return listadocursos;
     }
 

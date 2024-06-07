@@ -1,0 +1,13 @@
+@using System.Data.SqlClient;
+@using Dapper;
+
+@foreach(Cursos curso in @ViewBag.todosCursos)
+        {
+                <tr>
+                    <h1>@curso.nombreCurso</h1>
+                        <td>@curso.descripcion</td>
+                        <td>@curso.temario</td>
+                        <td>@curso.imagen</td>
+                        <td>@curso.precio</td>
+                </tr>
+        }
