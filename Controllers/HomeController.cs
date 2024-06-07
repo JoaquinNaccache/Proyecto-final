@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using ProyectoFinal.Models;
+using ProyectoFinal1.Models;
 
 namespace ProyectoFinal1.Controllers;
 
@@ -23,6 +23,12 @@ public class HomeController : Controller
         return View();
     }
      public IActionResult TraerCursos()
+    {
+        ViewBag.todosCursos = BD.TraerCursos();
+
+        return View();
+    }
+     public IActionResult VerDetalleCursos()
     {
         ViewBag.todosCursos = BD.TraerCursos();
 

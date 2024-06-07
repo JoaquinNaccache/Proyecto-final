@@ -1,11 +1,11 @@
 using System.Data.SqlClient;
 using Dapper;
 
-namespace ProyectoFinal.Models;
+namespace ProyectoFinal1.Models;
 
 public class Cursos
 {  
-    public int idCurso{get;set;}
+    public int idCurso{get;set;} 
     public string nombreCurso{get;set;}
     public string descripcion{get;set;}
 

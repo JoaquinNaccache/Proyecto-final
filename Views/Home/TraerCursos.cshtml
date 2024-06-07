@@ -1,0 +1,17 @@
+@using System.Data.SqlClient;
+@using Dapper;
+@namespace ProyectoFinal1.Models;
+<div>
+@foreach(Cursos curso in @ViewBag.todosCursos)
+        {
+           
+                
+                    <tr>
+                        <td>@curso.nombreCurso</td>
+                        <td>@curso.descripcion</td>
+                        <td>@curso.temario</td>
+                        <td>@curso.imagen</td>
+                    </tr>
+            <button type="button" class="btn btn-outline-primary"><a href='@Url.Action("VerDetalleCursos", "Home")'>Ver detalle</a></button>
+        }
+</div>

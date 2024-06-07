@@ -1,7 +1,7 @@
 using System.Data.SqlClient;
 using Dapper;
 
-namespace ProyectoFinal.Models;
+namespace ProyectoFinal1.Models;
 
 public class Profesores
 {  

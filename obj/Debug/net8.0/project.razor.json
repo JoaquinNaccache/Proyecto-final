@@ -19329,6 +19329,11 @@
   "RootNamespace": "ProyectoFinal1",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\47807062\\Downloads\\Proyecto-final\\Views\\Home\\VerDetalleCursos.cshtml",
+      "TargetPath": "Views\\Home\\VerDetalleCursos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\47807062\\Downloads\\Proyecto-final\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -19351,6 +19356,11 @@
     {
       "FilePath": "c:\\Users\\47807062\\Downloads\\Proyecto-final\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\47807062\\Downloads\\Proyecto-final\\Views\\Home\\TraerCursos.cshtml",
+      "TargetPath": "Views\\Home\\TraerCursos.cshtml",
       "FileKind": "mvc"
     },
     {
