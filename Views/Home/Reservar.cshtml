@@ -1,0 +1,14 @@
+@using System.Data.SqlClient;
+@using Dapper;
+
+@foreach(Cursos curso in @ViewBag.UnicoCurso)
+        {
+                <tr>
+                    <h1>su reserva fue un exito!!</h1>
+                    <h6 style="display: inline;">Usted reservó el curso:</h6>
+                    <h6 style="display: inline;">@curso.nombreCurso</h6>
+                    <img src="@curso.imagen" alt="Imagen del curso" class="curso-imagen">
+                    <h6>@curso.temario</h6>
+
+                </tr>
+        }

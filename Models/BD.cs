@@ -39,5 +39,12 @@ public class BD
         }
         return listadoprofesores;
     }
+    // public static void AgregarUsuarioCurso(int idCurso,int idUsuario,int valoracion){
+    // string SQL = "INSERT INTO Usuario_Cursos(idUsuario,idCurso,valoracion) VALUES (@idusuario, @idcurso, @Valoracion)";
+    //  using (SqlConnection db = new SqlConnection(_connectionString))
+    //     {
+    //         db.Execute(SQL, new { idusuario = idUsuario, idcurso = idCurso, Valoracion = valoracion});
+    //     }
+//}  FIJARSE BIEN
     
 }

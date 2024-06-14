@@ -36,6 +36,12 @@ public class HomeController : Controller
 
         return View();
     }
+     public IActionResult Reservar(int idCurso, int idUsuario, int valoracion)
+    {
+        ViewBag.UnicoCurso = BD.TraerCursoUnico(idCurso);
+        // ViewBag.idUsuario =BD.AgregarUsuarioCurso(idCurso,idUsuario,valoracion);  FIJARSE BIEN
+        return View();
+    }
 
     /*[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

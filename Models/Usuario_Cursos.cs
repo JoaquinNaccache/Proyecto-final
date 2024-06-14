@@ -6,7 +6,7 @@ namespace ProyectoFinal1.Models;
 public class Usuario_Cursos
 {  
     
-    public int idUsuarior{get;set;}
+    public int idUsuario{get;set;}
     public int idCurso{get;set;}
     public int valoracion{get;set;}
     
@@ -17,7 +17,7 @@ public class Usuario_Cursos
 
     public Usuario_Cursos(int IdUsuario, int IdCurso, int Valoracion)
     {
-        idUsuarior=IdUsuario;
+        idUsuario=IdUsuario;
         idCurso=IdCurso;
         valoracion=Valoracion;
         
