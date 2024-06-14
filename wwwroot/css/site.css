@@ -19,11 +19,33 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #f0f2f5; /* Light background for the whole page */
+  font-family: 'Arial', sans-serif; /* Professional font */
 }
 
-
-
 .container {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+}
+
+.welcome-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.welcome-header h1 {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.curso-cards-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -31,12 +53,15 @@ body {
 }
 
 .curso-card {
-  max-width: 300px;
+  display: flex;
+  flex-direction: row; /* Horizontal layout */
+  flex: 1 1 calc(33.333% - 20px); /* Three cards per row */
+  max-width: calc(33.333% - 20px); /* Adjusting for gap */
   padding: 20px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  text-align: center;
+  text-align: left; /* Align text to the left */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -45,17 +70,23 @@ body {
   transform: translateY(-5px);
 }
 
-.curso-card h2 {
-  margin-top: 0;
-  font-size: 1.5rem;
-  color: #333;
+.curso-card img.curso-imagen {
+  max-width: 100px; /* Fixed width for the image */
+  height: auto;
+  margin-right: 20px; /* Space between image and content */
+  border-radius: 8px;
 }
 
-.curso-imagen {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-  border-radius: 8px;
+.curso-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+}
+
+.curso-card h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
 }
 
 .btn {
@@ -67,6 +98,8 @@ body {
   border: 1px solid #007bff;
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  align-self: start; /* Align button to the start */
+  margin-top: 10px;
 }
 
 .btn:hover {
@@ -74,3 +107,25 @@ body {
   color: #fff;
   border-color: #007bff;
 }
+
+
+
+/* SOBRE NOSOTROS */
+
+
+.titulonosotros {
+  font-size: 2.5rem;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-weight: bold; 
+}
+
+
+.textonosotros{
+  font-weight: bold;
+  
+}
+
+

@@ -19364,6 +19364,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\47492985\\Downloads\\Proyecto-final\\Views\\Home\\TraerCursos.cshtml",
+      "TargetPath": "Views\\Home\\TraerCursos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\47492985\\Downloads\\Proyecto-final\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
