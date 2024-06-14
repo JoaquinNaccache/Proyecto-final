@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LSUQiPqyRA8brz3aPABjDq75qr7okJVmIqSMmzm2D9VKaqx3603IiMfLEqq5hmJR06R4KBY4gFnZbq+jnAHQ4Q==",
+  "dgSpecHash": "/O8knmhluQo5g8K2Jb68MfhMxuBTxPV5olu+5Su1Nnc/tA5FjaAipgAt5baHxDfPSuOEf2rG1RJSZu+KX+iHyw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\47807062\\Downloads\\ProyectoFinal1\\ProyectoFinal1.csproj",
+  "projectFilePath": "C:\\Users\\47807062\\Proyecto-final\\ProyectoFinal1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\47807062\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\47807062\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

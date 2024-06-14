@@ -6,13 +6,24 @@ namespace ProyectoFinal1.Models;
 public class BD
 {  private static string _connectionString = @"Server=localhost; DataBase=edu+;Trusted_Connection=True;";
 
-        public static List<Cursos> TraerCursos(int idCurso) 
+        public static List<Cursos> TraerCursos() 
     {
         List<Cursos>  listadocursos = null;
         using(SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT * FROM Cursos Where idCurso = @idCurso";
+            string sql = "SELECT * FROM Cursos";
             listadocursos = db.Query<Cursos>(sql).ToList();
+        }
+        //falta poner el value idCurso = @idCurso
+        return listadocursos;
+    }
+      public static List<Cursos> TraerCursoUnico(int idCurso) 
+    {
+        List<Cursos>  listadocursos = null;
+        using(SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Cursos WHERE idCurso = @pidCurso";
+            listadocursos = db.Query<Cursos>(sql,new {pidCurso = idCurso}).ToList();
         }
         //falta poner el value idCurso = @idCurso
         return listadocursos;
