@@ -28,10 +28,10 @@ public class HomeController : Controller
 
         return View();
     }
-     public IActionResult VerDetalleCursos()
+     public IActionResult VerDetalleCursos(int idCurso)
     {
 
-        ViewBag.todosCursos = BD.TraerCursos();
+        ViewBag.UnicoCurso = BD.TraerCursoUnico(idCurso);
 
         return View();
     }

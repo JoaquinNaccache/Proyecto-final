@@ -19,7 +19,7 @@ public class BD
     }
       public static List<Cursos> TraerCursoUnico(int idCurso) 
     {
-        List<Cursos>  listadocursos = null;
+        List<Cursos>  listadocursos = new List<Cursos>();
         using(SqlConnection db = new SqlConnection(_connectionString))
         {
             string sql = "SELECT * FROM Cursos WHERE idCurso = @pidCurso";
