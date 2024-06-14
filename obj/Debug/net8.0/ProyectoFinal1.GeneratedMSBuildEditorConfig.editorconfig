@@ -34,7 +34,15 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTb2JyZU5vc290cm9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+<<<<<<< HEAD
 [C:/Users/devandroid/Proyecto-final/Views/Home/VerDetalleCursos.cshtml]
+=======
+[C:/Users/47492985/Downloads/Proyecto-final/Views/Home/TraerCursos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUcmFlckN1cnNvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/47492985/Downloads/Proyecto-final/Views/Home/VerDetalleCursos.cshtml]
+>>>>>>> 576b5694ce493a00a731696bc8b3f5a556901b59
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWZXJEZXRhbGxlQ3Vyc29zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
