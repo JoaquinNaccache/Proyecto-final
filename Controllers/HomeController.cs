@@ -15,6 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewBag.todosCursos = BD.TraerCursos();
         return View();
     }
 
@@ -22,9 +23,9 @@ public class HomeController : Controller
     {
         return View();
     }
-     public IActionResult TraerCursos()
+     public IActionResult SobreNosotros()
     {
-        ViewBag.todosCursos = BD.TraerCursos();
+        //ViewBag.todosCursos = BD.TraerCursos();
 
         return View();
     }
