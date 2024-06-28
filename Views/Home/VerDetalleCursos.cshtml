@@ -9,6 +9,6 @@
                         <td>@curso.temario</td>
                         <td>@curso.precio</td>
                 </tr>
-               //  <a href='@Url.Action("Reservar", "Home", new { idCurso = curso.idCurso  idUsuario = curso.idUsuario})' class="btn btn-outline-primary">Reservar</a>
+               <a href='@Url.Action("Reservar", "Home", new { idCurso = curso.idCurso , idUsuario = 1})' class="btn btn-outline-primary">Reservar</a>
                // le tengo que pasar el idUsuario   FIJARSE BIEN
         }

@@ -39,13 +39,13 @@ public class HomeController : Controller
      public IActionResult Reservar(int idCurso, int idUsuario, int valoracion)
     {
         ViewBag.UnicoCurso = BD.TraerCursoUnico(idCurso);
-        // ViewBag.idUsuario =BD.AgregarUsuarioCurso(idCurso,idUsuario,valoracion);  FIJARSE BIEN
+        BD.AgregarUsuarioCurso(idCurso,idUsuario,valoracion);  
         return View();
     }
 
-    /*[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }*/
+    }
 }

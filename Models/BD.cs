@@ -14,7 +14,6 @@ public class BD
             string sql = "SELECT * FROM Cursos";
             listadocursos = db.Query<Cursos>(sql).ToList();
         }
-        //falta poner el value idCurso = @idCurso
         return listadocursos;
     }
       public static List<Cursos> TraerCursoUnico(int idCurso) 
@@ -39,12 +38,13 @@ public class BD
         }
         return listadoprofesores;
     }
-    // public static void AgregarUsuarioCurso(int idCurso,int idUsuario,int valoracion){
-    // string SQL = "INSERT INTO Usuario_Cursos(idUsuario,idCurso,valoracion) VALUES (@idusuario, @idcurso, @Valoracion)";
-    //  using (SqlConnection db = new SqlConnection(_connectionString))
-    //     {
-    //         db.Execute(SQL, new { idusuario = idUsuario, idcurso = idCurso, Valoracion = valoracion});
-    //     }
-//}  FIJARSE BIEN
+    public static void AgregarUsuarioCurso(int idCurso,int idUsuario,int valoracion){
+     string SQL = "INSERT INTO Usuario_Cursos(idUsuario,idCurso,valoracion) VALUES (@idusuario, @idcurso, @Valoracion)";
+      using (SqlConnection db = new SqlConnection(_connectionString))
+         {
+             db.Execute(SQL, new { idusuario = idUsuario, idcurso = idCurso, Valoracion = valoracion});
+         }
+}  
+// FIJARSE BIEN
     
 }
