@@ -1,14 +1,27 @@
 @using System.Data.SqlClient;
 @using Dapper;
 
-@foreach(Cursos curso in @ViewBag.UnicoCurso)
-        {
-                <tr>
-                    <h1>@curso.nombreCurso</h1>
-                        <td>@curso.descripcion</td>
-                        <td>@curso.temario</td>
-                        <td>@curso.precio</td>
-                </tr>
-               <a href='@Url.Action("Reservar", "Home", new { idCurso = curso.idCurso , idUsuario = 1})' class="btn btn-outline-primary">Reservar</a>
-               // le tengo que pasar el idUsuario   FIJARSE BIEN
-        }
+
+@foreach (Cursos curso in ViewBag.UnicoCurso)
+{
+    <tr>
+        <td><img src="@curso.imagen" alt="Imagen del curso" class="curso-imagen"></td>
+        <td><h1>@curso.nombreCurso</h1></td>
+    </tr>
+    <tr>
+        <td>El valor del curso es: @curso.precio$</td>
+    </tr>
+      <td>
+            <a href='@Url.Action("Reservar", "Home", new { idCurso = curso.idCurso, idUsuario = 1 })' class="btn btn-outline-primary">Reservar</a>
+        </td>
+}
+@foreach(Profesores profesor in @ViewBag.TraerProfesores)
+{
+        <h6>El curso se trata sobre:"@profesor.informacion"</h6>
+        <h6>Este curso lo expone:@profesor.nombreProfesor</h6>
+
+}
+
+
+
+

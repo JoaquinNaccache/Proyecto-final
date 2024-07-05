@@ -28,13 +28,13 @@ public class BD
         return listadocursos;
     }
 
-     public static List<Profesores> TraerProfesores() 
+     public static List<Profesores> TraerProfesores(int idCurso) 
     {
         List<Profesores>  listadoprofesores = null;
         using(SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT * FROM Profesores";
-            listadoprofesores = db.Query<Profesores>(sql).ToList();
+            string sql = "SELECT Profesores.* FROM Cursos JOIN Profesores ON Cursos.idProfesor = Profesores.idProfesor WHERE Cursos.idCurso = @pidCurso;";
+            listadoprofesores = db.Query<Profesores>(sql,new {pidCurso = idCurso}).ToList();
         }
         return listadoprofesores;
     }

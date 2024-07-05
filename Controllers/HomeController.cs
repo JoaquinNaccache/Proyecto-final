@@ -33,13 +33,14 @@ public class HomeController : Controller
     {
 
         ViewBag.UnicoCurso = BD.TraerCursoUnico(idCurso);
-
+        ViewBag.TraerProfesores= BD.TraerProfesores(idCurso); 
         return View();
     }
      public IActionResult Reservar(int idCurso, int idUsuario, int valoracion)
     {
         ViewBag.UnicoCurso = BD.TraerCursoUnico(idCurso);
-        BD.AgregarUsuarioCurso(idCurso,idUsuario,valoracion);  
+        BD.AgregarUsuarioCurso(idCurso,idUsuario,valoracion); 
+        
         return View();
     }
 
