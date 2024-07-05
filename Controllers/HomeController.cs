@@ -23,6 +23,10 @@ public class HomeController : Controller
     {
         return View();
     }
+      public IActionResult Perfil()
+    {
+        return View();
+    }
      public IActionResult SobreNosotros()
     {
         //ViewBag.todosCursos = BD.TraerCursos();
