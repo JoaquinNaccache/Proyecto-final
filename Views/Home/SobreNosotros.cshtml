@@ -15,35 +15,41 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            color: #333333; /* Color de texto predeterminado */
         }
 
         .content {
             max-width: 800px;
             margin: 50px auto;
-            padding: 20px;
+            padding: 30px;
             background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
         }
 
         h1 {
             font-size: 36px;
-            color: #333333;
-            text-align: center;
+            color: #007bff; /* Azul celeste */
             margin-bottom: 20px;
         }
 
         .textonosotros {
+            font-size: 18px;
+            line-height: 1.8;
             color: #666666;
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .textonosotros:last-child {
+            margin-bottom: 0;
         }
     </style>
 </head>
 <body>
     <div class="content">
-        <h1>Bienvenido a Edu+</h1>
+        <h1>Bienvenido a <span style="font-weight: bold;">Edu+</span></h1>
         <p class="textonosotros">
             Somos Edu+, una plataforma educativa dedicada a proporcionar una amplia variedad de cursos en línea para satisfacer tus necesidades de aprendizaje. Nuestro objetivo es brindarte acceso a la mejor educación desde la comodidad de tu hogar o lugar de trabajo.
         </p>
