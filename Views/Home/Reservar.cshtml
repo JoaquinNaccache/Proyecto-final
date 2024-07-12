@@ -1,14 +1,54 @@
-@using System.Data.SqlClient;
-@using Dapper;
-
-@foreach(Cursos curso in @ViewBag.UnicoCurso)
-        {
-                <tr>
-                    <h1>su reserva fue un exito!!</h1>
-                    <h6 style="display: inline;">Usted reservó el curso:</h6>
-                    <h6 style="display: inline;">@curso.nombreCurso</h6>
-                    <h6>@curso.temario</h6>
-                </tr>
-                
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Reserva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
         }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        h6 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .temario {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
 
+
+    <div class="container">
+        <h1>¡Su reserva fue un éxito!</h1>
+        @foreach(Cursos curso in ViewBag.UnicoCurso)
+        {
+            <div>
+                <h6>Usted reservó el curso:</h6>
+                <h6>@curso.nombreCurso</h6>
+                <p class="temario">@curso.temario</p>
+            </div>
+        }
+    </div>
+</body>
+</html>

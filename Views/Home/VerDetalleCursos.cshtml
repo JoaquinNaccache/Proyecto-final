@@ -1,27 +1,129 @@
-@using System.Data.SqlClient;
-@using Dapper;
-
-
-@foreach (Cursos curso in ViewBag.UnicoCurso)
-{
-    <tr>
-        <td><img src="@curso.imagen" alt="Imagen del curso" class="curso-imagen"></td>
-        <td><h1>@curso.nombreCurso</h1></td>
-    </tr>
-    <tr>
-        <td>El valor del curso es: @curso.precio$</td>
-    </tr>
-      <td>
-            <a href='@Url.Action("Reservar", "Home", new { idCurso = curso.idCurso, idUsuario = 1 })' class="btn btn-outline-primary">Reservar</a>
-        </td>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007bff;
+            text-transform: uppercase;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .curso-imagen {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .curso-imagen:hover {
+            transform: scale(1.1);
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .curso-info {
+            text-align: center;
+        }
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-@foreach(Profesores profesor in @ViewBag.TraerProfesores)
-{
-        <h6>El curso se trata sobre:"@profesor.informacion"</h6>
-        <h6>Este curso lo expone:@profesor.nombreProfesor</h6>
 
+.btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
+        .profesor-info {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .profesor-info h2 {
+            color: #007bff;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cursos Disponibles</h2>
+        <table>
+            @foreach (Cursos curso in ViewBag.UnicoCurso)
+            {
+                <tr>
+                    <td colspan="2">
+                        <img src="@curso.imagen" alt="Imagen del curso" class="curso-imagen">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h1>@curso.nombreCurso</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="curso-info">
+                        El valor del curso es: @curso.precio$
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="curso-info">
+                        <a href="@Url.Action("Reservar", "Home", new { idCurso = curso.idCurso, idUsuario = 1 })" class="btn btn-outline-primary">Reservar</a>
+                    </td>
+                </tr>
+            }
+        </table>
 
-
-
+        <div class="profesor-info">
+            <h2>Información del Profesor</h2>
+            @foreach(Profesores profesor in ViewBag.TraerProfesores)
+            {
+                <div>
+                    <h3>Curso impartido por: @profesor.nombreProfesor</h3>
+                    <p>@profesor.informacion</p>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
