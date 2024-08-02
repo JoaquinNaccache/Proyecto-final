@@ -278,3 +278,4 @@ Z:\Proyecto-final\obj\Debug\net8.0\refint\ProyectoFinal1.dll
 Z:\Proyecto-final\obj\Debug\net8.0\ProyectoFinal1.pdb
 Z:\Proyecto-final\obj\Debug\net8.0\ProyectoFinal1.genruntimeconfig.cache
 Z:\Proyecto-final\obj\Debug\net8.0\ref\ProyectoFinal1.dll
+C:\Users\47807062\Downloads\Proyecto-final\obj\Debug\net8.0\ProyectoFinal1.MvcApplicationPartsAssemblyInfo.cs
