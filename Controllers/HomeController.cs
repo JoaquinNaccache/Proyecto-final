@@ -1,9 +1,11 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal1.Models;
-
+using Microsoft.AspNetCore.Authorization;
+// using Microsoft.AspNetCore.Authorization.Cookies; error aca
 namespace ProyectoFinal1.Controllers;
 
+[Authorize]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -12,6 +14,12 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
+    //  public async task<IActionResult> Salir() error en el task aca
+    // {
+    //     await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);    
+    //     return RedirectToAction("Login","Cuenta");
+    // }
+
 
     public IActionResult Index()
     {

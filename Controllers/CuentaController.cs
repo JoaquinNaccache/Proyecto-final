@@ -1,9 +1,12 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using ProyectoFinal1.Models;
 using ProyectoFinal1.Data;
 using System.Security.Claims;
-using System.Data.SqlClient;
+using Microsoft.AspNetCore.Authentication;
+using System.Data;
+using Microsoft.Data.SqlClient; // Reemplaza System.Data.SqlClient
 
 namespace ProyectoFinal1.Controllers;
 
@@ -34,13 +37,14 @@ public class CuentaController : Controller
             using(SqlConnection con = new(_contexto.Conexion)){
                 using(SqlCommand cmd= new("sp_validar_usuario", con)){
                     cmd.CommandType=System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@nombreUsuario", System.Data.SqlDbType.Varchar).Value=u.nombreUsuario;
-                    cmd.Parameters.Add("@contrasena", System.Data.SqlDbType.Varchar).Value=u.contrasena;
+                   cmd.Parameters.Add("@nombreUsuario", SqlDbType.VarChar).Value = u.nombreUsuario;
+                   cmd.Parameters.Add("@contrasena", SqlDbType.VarChar).Value = u.contrasena;
+
                     con.Open();
                     var dr = cmd.ExecuteReader();
                     while(dr.Read()){
                         if(dr["nombreUsuario"] != null && u.nombreUsuario != null){
-                            List<Claim> c = new list<Claim>()
+                            List<Claim> c = new List<Claim>()
                             {
                                 new Claim(ClaimTypes.NameIdentifier, u.nombreUsuario)
                             };
@@ -55,19 +59,22 @@ public class CuentaController : Controller
                                 p.ExpiresUtc= DateTimeOffset.UtcNow.AddDays(1);
                             
                             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(ci), p);
-                            return RedirectToAction("Index", "Home")
+                            return RedirectToAction("Index", "Home");
                         }else{
                             ViewBag.Error="Credenciales incorrectas o cuenta no registrada";
                         }
 
                     }
+                    con.Close();
                 }
+                return View();
             }
         }
-        catch(System.Exception)
+        catch(System.Exception e)
         {
-            throw;
-        }
+            ViewBag.Error=e.Message;      
+            return View();
+              }
     }
      public IActionResult Error()
     {
