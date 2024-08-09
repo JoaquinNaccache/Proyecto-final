@@ -1,4 +1,5 @@
 using System.Data.SqlClient;
+using System.ComponentModel.DataAnnotations.Schema;
 using Dapper;
 
 namespace ProyectoFinal1.Models;
@@ -12,10 +13,9 @@ public class Usuario
     public string contrasena{get;set;}
     public string email{get;set;}
 
+    [NotMapped]
 
-
-    
-
+    public bool MantenerActivo{get;set;}
     
    
 
