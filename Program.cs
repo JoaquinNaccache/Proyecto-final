@@ -2,6 +2,7 @@ using ProyectoFinal1.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authentication;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton(new Contexto(builder.Configuration.GetConnectionString("conexion")));
-builder.Services.AddAuthenticationDefaults.AuthenticationScheme.AddCookie(option=>{option.LoginPath="/Cuenta/";});
+builder.Services.AddAuthenticationDefaults.AuthenticationScheme.AddCookie(option=>{option.LoginPath="/Cuenta/Login";});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
