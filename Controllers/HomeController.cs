@@ -2,7 +2,8 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal1.Models;
 using Microsoft.AspNetCore.Authorization;
-// using Microsoft.AspNetCore.Authorization.Cookies; error aca
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 namespace ProyectoFinal1.Controllers;
 
 [Authorize]
@@ -25,6 +26,12 @@ public class HomeController : Controller
     {
         ViewBag.todosCursos = BD.TraerCursos();
         return View();
+    }
+
+    public async Task<IActionResult> Salir()
+    {
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        return RedirectToAction("Login", "Cuenta");
     }
 
     public IActionResult Privacy()
