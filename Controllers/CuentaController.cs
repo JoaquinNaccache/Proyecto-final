@@ -80,4 +80,8 @@ public class CuentaController : Controller
     {
         return View("Error!");
     }
+     public IActionResult Registrar()
+    {
+        return View("Registrar");
+    }
 }

@@ -377,3 +377,7 @@ C:\Users\47492985\Downloads\Proyecto-final\bin\Debug\net8.0\Microsoft.AspNetCore
 C:\Users\47492985\Downloads\Proyecto-final\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
 C:\Users\47492985\Downloads\Proyecto-final\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\47492985\Downloads\Proyecto-final\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\47807062\Proyecto-final\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\47807062\Proyecto-final\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\47807062\Proyecto-final\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\47807062\Proyecto-final\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
