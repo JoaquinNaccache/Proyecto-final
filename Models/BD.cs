@@ -45,7 +45,16 @@ public class BD
          {
              db.Execute(SQL, new { idusuario = idUsuario, idcurso = idCurso, Valoracion = valoracion});
          }
-}  
+} 
+
+//  public static void AgregarUsuario(Usuario usuario)
+//         {
+//             using (SqlConnection db = new SqlConnection(_connectionString))
+//             {
+//                 string sql = "INSERT INTO Usuarios (nombreUsuario, apellido, contrasena, email) VALUES (@NombreUsuario, @Apellido, @Contrasena, @Email)";
+//                 db.Execute(sql, new { usuario.NombreUsuario, usuario.Apellido, usuario.Contrasena, usuario.Email });
+//             }
+//         }
 // FIJARSE BIEN
     
 }

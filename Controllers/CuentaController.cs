@@ -6,6 +6,8 @@ using ProyectoFinal1.Data;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using System.Data;
+using Dapper;
+
 using Microsoft.Data.SqlClient; // Reemplaza System.Data.SqlClient
 
 namespace ProyectoFinal1.Controllers;

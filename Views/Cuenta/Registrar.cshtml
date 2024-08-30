@@ -1,31 +1,68 @@
-@model UsuarioRegistroViewModel
+@model ProyectoFinal1.Models.Usuario
 
-<h2>Registrar</h2>
+<form method="post" asp-action="Registrar" asp-controller="Cuenta" class="needs-validation" novalidate>
+    <h1 class="h3 mb-3 fw-normal text-center">Registrar</h1>
 
-<form asp-action="Registrar" method="post">
-    <div class="form-group">
-        <label asp-for="NombreUsuario"></label>
-        <input asp-for="NombreUsuario" class="form-control" />
-        <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre de Usuario" required asp-for="nombreUsuario">
+        <label for="nombreUsuario">Nombre de Usuario</label>
+        <div class="invalid-feedback">
+            Por favor, ingresa tu nombre de usuario.
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Apellido"></label>
-        <input asp-for="Apellido" class="form-control" />
-        <span asp-validation-for="Apellido" class="text-danger"></span>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="apellido" placeholder="Apellido" required asp-for="apellido">
+        <label for="apellido">Apellido</label>
+        <div class="invalid-feedback">
+            Por favor, ingresa tu apellido.
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Contrasena"></label>
-        <input asp-for="Contrasena" class="form-control" type="password" />
-        <span asp-validation-for="Contrasena" class="text-danger"></span>
+
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" placeholder="Email" required asp-for="email">
+        <label for="email">Email</label>
+        <div class="invalid-feedback">
+            Por favor, ingresa un email válido.
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
+
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="contrasena" placeholder="Contraseña" required asp-for="contrasena">
+        <label for="contrasena">Contraseña</label>
+        <div class="invalid-feedback">
+            Por favor, ingresa una contraseña.
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Registrar</button>
+
+    <button type="submit" class="w-100 btn btn-lg btn-primary">Registrar</button>
+
+    @if (!string.IsNullOrEmpty(ViewBag.Error))
+    {
+        <div class="alert alert-danger mt-3">
+            @ViewBag.Error
+        </div>
+    }
 </form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        (function () {
+            'use strict';
+
+            var forms = document.querySelectorAll('.needs-validation');
+
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+        })();
+    </script>
 }
