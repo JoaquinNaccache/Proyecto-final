@@ -8,7 +8,7 @@ using System.Security.Claims;
 namespace ProyectoFinal1.Controllers;
 
 
-[Authorize]
+    [Authorize]  // Protege todas las acciones en este controlador
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;

@@ -19,7 +19,11 @@ public class CuentaController : Controller
    public CuentaController(Contexto contexto){
     _contexto=contexto;
    }
-   
+    public async Task<IActionResult> Logout()
+    {
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        return RedirectToAction("Index", "Home");
+    }
    public IActionResult Login()
     {
         ClaimsPrincipal c = HttpContext.User;
