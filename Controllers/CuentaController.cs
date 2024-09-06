@@ -45,10 +45,14 @@ public class CuentaController : Controller
                     con.Open();
                     var dr = cmd.ExecuteReader();
                     while(dr.Read()){
+                        string userId = dr["idUsuario"].ToString(); // Asegúrate de que el nombre de la columna sea correcto
+                        string nombreUsuario = dr["nombreUsuario"].ToString(); // Asegúrate de que el nombre de la columna sea correcto
                         if(dr["nombreUsuario"] != null && u.nombreUsuario != null){
                             List<Claim> c = new List<Claim>()
                             {
+                                new Claim(ClaimTypes.NameIdentifier, userId), // lo puse yo 
                                 new Claim(ClaimTypes.NameIdentifier, u.nombreUsuario)
+                                
                             };
                             ClaimsIdentity ci = new(c, CookieAuthenticationDefaults.AuthenticationScheme);
                             AuthenticationProperties p = new();

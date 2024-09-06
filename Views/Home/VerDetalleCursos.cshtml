@@ -107,8 +107,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="curso-info">
-                        <a href="@Url.Action("Reservar", "Home", new { idCurso = curso.idCurso, idUsuario = "PONER ID USUARIO" })" class="btn btn-outline-primary">Reservar</a>
+                    <td colspan="2" class="curso-info">                                                         
+                        <a href="@Url.Action("Reservar", "Home", new { idCurso = curso.idCurso, idUsuario = ViewBag.UserId })" class="btn btn-outline-primary">Reservar</a>
                     </td>
                 </tr>
             }
