@@ -34,16 +34,24 @@
             Por favor, ingresa una contraseña.
         </div>
     </div>
+<!-- <a href="@Url.Action("Index", "Home")" class="w-100 btn btn-lg btn-primary">Registrar</a> -->
 
-<a href="@Url.Action("Index", "Home")" class="w-100 btn btn-lg btn-primary">Registrar</a>
-
-    @if (!string.IsNullOrEmpty(ViewBag.Error))
-    {
-        <div class="alert alert-danger mt-3">
-            @ViewBag.Error
-        </div>
-    }
+    <button type="submit" class="w-100 btn btn-lg btn-primary">Registrar</button>
 </form>
+
+<!-- Mostrar mensajes de error o éxito aquí -->
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger mt-3">
+        @ViewBag.Error
+    </div>
+}
+@if (!string.IsNullOrEmpty(ViewBag.Success))
+{
+    <div class="alert alert-success mt-3">
+        @ViewBag.Success
+    </div>
+}
 
 @section Scripts {
     <script>

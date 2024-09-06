@@ -19,6 +19,7 @@ public class CuentaController : Controller
    public CuentaController(Contexto contexto){
     _contexto=contexto;
    }
+   
    public IActionResult Login()
     {
         ClaimsPrincipal c = HttpContext.User;
@@ -94,10 +95,33 @@ public class CuentaController : Controller
         return View("Registrar");
     }
 
+    // [HttpPost]
+    // public IActionResult Registrar(Usuario usuario)
+    // {
+    //     BD.AgregarUsuario(usuario);
+    //     return View("Registrar");
+    // }
     [HttpPost]
-    public IActionResult Registrar(Usuario usuario)
+public IActionResult Registrar(Usuario usuario)
+{
+    if (ModelState.IsValid)
     {
-        BD.AgregarUsuario(usuario);
-        return View("Registrar");
+        try
+        {
+            BD.AgregarUsuario(usuario);
+            ViewBag.Success = "Usuario registrado exitosamente";
+        }
+        catch (Exception ex)
+        {
+            ViewBag.Error = "Error al registrar el usuario: " + ex.Message;
+        }
     }
+    else
+    {
+        ViewBag.Error = "Datos inválidos, por favor verifica los campos.";
+    }
+
+    return View("Registrar");
+}
+
 }
