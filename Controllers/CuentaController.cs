@@ -82,8 +82,18 @@ public class CuentaController : Controller
     {
         return View("Error!");
     }
-     public IActionResult Registrar()
+
+    [HttpGet]
+    public IActionResult Registrar()
     {
+        //BD.AgregarUsuario(usuario);
+        return View("Registrar");
+    }
+
+    [HttpPost]
+    public IActionResult Registrar(Usuario usuario)
+    {
+        BD.AgregarUsuario(usuario);
         return View("Registrar");
     }
 }
