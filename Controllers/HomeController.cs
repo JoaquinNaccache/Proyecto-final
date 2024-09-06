@@ -4,7 +4,9 @@ using ProyectoFinal1.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
 namespace ProyectoFinal1.Controllers;
+
 
 [Authorize]
 public class HomeController : Controller
@@ -53,6 +55,9 @@ public class HomeController : Controller
 
         ViewBag.UnicoCurso = BD.TraerCursoUnico(idCurso);
         ViewBag.TraerProfesores= BD.TraerProfesores(idCurso); 
+        //ViewBag.idUsuario = HttpContext.User.Identity.Id;
+        var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value; 
+        ViewBag.UserId = userId;
         return View();
     }
      public IActionResult Reservar(int idCurso, int idUsuario, int valoracion)
