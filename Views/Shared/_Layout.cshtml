@@ -18,36 +18,40 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SobreNosotros">Sobre Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Perfil">Perfil</a>
-                    </li>
-                    @if (User.HasClaim(c => c.Type == "CrearCursoPermission" && c.Value == "true"))
-                            {
-                                 <a href='@Url.Action("CrearCurso", "Home")' class="btn btn-outline-primary">Crear Curso</a> //CAMBIAR EL ESTILO PARA QUE SE VEAN TODOS IGUALES
-                            }
+                        <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SobreNosotros">Sobre Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Perfil">Perfil</a>
+                        </li>
+                        @if (User.HasClaim(c => c.Type == "CrearCursoPermission" && c.Value == "true"))
+                        {
+                            <li class="nav-item">
+                                <a href='@Url.Action("CrearCurso", "Home")' class="nav-link text-dark">Crear Curso</a> <!-- Mismo estilo que el resto -->
+                            </li>
+                        }
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Cuenta" asp-action="Registrar">Registrarse</a>
+                            </li>
+                        }
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <form method="post" asp-controller="Cuenta" asp-action="Logout" class="d-inline">
+                                    <button type="submit" class="btn btn-link nav-link text-dark p-0 border-0 bg-transparent">Cerrar sesión</button>
+                                </form>
+                            </li>
+                        }
+                    </ul>
 
-                    @if (!User.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cuenta" asp-action="Registrar">Registrarse</a>
-                        </li>
-                    }
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item">
-                            <form method="post" asp-controller="Cuenta" asp-action="Logout" class="d-inline">
-                                <button type="submit" class="btn btn-link nav-link text-dark p-0 border-0 bg-transparent">Cerrar sesión</button>
-                            </form>
-                        </li>
-                    }
-                </ul>
+
+
             </div>
         </div>
     </nav>
