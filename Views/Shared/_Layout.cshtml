@@ -28,6 +28,10 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Perfil">Perfil</a>
                     </li>
+                    @if (User.HasClaim(c => c.Type == "CrearCursoPermission" && c.Value == "true"))
+                            {
+                                 <a href='@Url.Action("CrearCurso", "Home")' class="btn btn-outline-primary">Crear Curso</a> //CAMBIAR EL ESTILO PARA QUE SE VEAN TODOS IGUALES
+                            }
 
                     @if (!User.Identity.IsAuthenticated)
                     {
