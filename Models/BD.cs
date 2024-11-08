@@ -56,12 +56,12 @@ public static void AgregarUsuario(Usuario usuario)
     }
 }
 
-public static void CrearCurso(string nombreCurso, string descripcion, string temario, int precio, string imagen, int idProfesor)
+public static void CrearCurso(string nombreCurso, string descripcion, string temario, int precio, int idProfesor)
 {
     using (SqlConnection db = new SqlConnection(_connectionString))
     {
-        string sql = "INSERT INTO Cursos (nombreCurso, descripcion, temario, precio, imagen, idProfesor) VALUES (@NombreCurso, @Descripcion, @Temario, @Precio, @Imagen, @idProfesor)";
-        db.Execute(sql, new{NombreCurso = nombreCurso, Descripcion = descripcion, Temario = temario, Precio = precio, Imagen=imagen, idProfesor=idProfesor });
+        string sql = "INSERT INTO Cursos (nombreCurso, descripcion, temario, precio, idProfesor) VALUES (@NombreCurso, @Descripcion, @Temario, @Precio, @idProfesor)";
+        db.Execute(sql, new{NombreCurso = nombreCurso, Descripcion = descripcion, Temario = temario, Precio = precio, idProfesor=idProfesor });
     }
 
 }
