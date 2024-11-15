@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using System.Data.SqlClient;  // Importante para SqlConnection
 using Microsoft.Extensions.Configuration; // Importante para IConfiguration
+using Microsoft.Extensions.Configuration;  // Para trabajar con IConfiguration (si aún no lo has hecho)
 
 namespace ProyectoFinal1.Controllers
 {
@@ -85,7 +86,7 @@ namespace ProyectoFinal1.Controllers
         private void CrearCursoEnBD(string nombreCurso, string descripcion, string temario, int precio, int idProfesor)
     {
         // Lee la cadena de conexión desde appsettings.json
-        string connectionString = _configuration.GetConnectionString("DefaultConnection");
+        string connectionString = _configuration.GetConnectionString("conexion");//lo cambie por DefaultConnection
         using (SqlConnection db = new SqlConnection(connectionString))
         {
             db.Open();

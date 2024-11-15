@@ -28,12 +28,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Perfil">Perfil</a>
                         </li>
-                        @if (User.HasClaim(c => c.Type == "CrearCursoPermission" && c.Value == "true"))
-                        {
-                            <li class="nav-item">
-                                <a href='@Url.Action("CrearCurso", "Home")' class="nav-link text-dark">Crear Curso</a> <!-- Mismo estilo que el resto -->
-                            </li>
-                        }
+                        <li class="nav-item">
+                                <a href='@Url.Action("CrearCurso", "Home")' class="nav-link text-dark">Crear Curso</a> 
+                        </li>
                         @if (!User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
@@ -73,3 +70,10 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+  <!-- @if (User.HasClaim(c => c.Type == "CrearCursoPermission" && c.Value == "true"))
+                        {
+
+                        <li class="nav-item">
+                                <a href='@Url.Action("CrearCurso", "Home")' class="nav-link text-dark">Crear Curso</a> 
+                        </li>
+                        } -->
