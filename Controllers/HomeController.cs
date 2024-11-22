@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
+using Dapper;
+
 using System.Data.SqlClient;  // Importante para SqlConnection
 using Microsoft.Extensions.Configuration; // Importante para IConfiguration
 using Microsoft.Extensions.Configuration;  // Para trabajar con IConfiguration (si aún no lo has hecho)
@@ -40,10 +42,51 @@ namespace ProyectoFinal1.Controllers
             return View();
         }
 
-        public IActionResult Perfil()
+    public IActionResult Perfil()
+{
+    // Obtener el ID del usuario logueado desde los Claims
+    var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+    if (string.IsNullOrEmpty(userId))
+    {
+        // Si el usuario no está logueado, redirigir al Login
+        return RedirectToAction("Login", "Cuenta");
+    }
+
+    try
+    {
+        // Convertir el ID a entero
+        int idUsuario = int.Parse(userId);
+
+        // Conexión a la base de datos
+        using (var con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
         {
-            return View();
+            con.Open();
+
+            // Consulta para obtener los datos del usuario logueado
+            var usuario = con.QueryFirstOrDefault<Usuario>(
+                "SELECT idUsuario, nombreUsuario, apellido, contrasena, email FROM Usuarios WHERE idUsuario = @Id",
+                new { Id = idUsuario }
+            );
+
+            // Pasar los datos del usuario a la vista
+            if (usuario != null)
+            {
+                return View(usuario);
+            }
         }
+    }
+    catch (Exception ex)
+    {
+        // Manejo de errores (puedes loguearlo si tienes un logger configurado)
+        _logger.LogError($"Error al cargar el perfil del usuario: {ex.Message}");
+    }
+
+    // Si no se encuentra el usuario, redirigir a Login
+    return RedirectToAction("Login", "Cuenta");
+}
+
+
 
         public IActionResult SobreNosotros()
         {
@@ -86,7 +129,7 @@ namespace ProyectoFinal1.Controllers
         private void CrearCursoEnBD(string nombreCurso, string descripcion, string temario, int precio, int idProfesor)
     {
         // Lee la cadena de conexión desde appsettings.json
-        string connectionString = _configuration.GetConnectionString("conexion");//lo cambie por DefaultConnection
+        string connectionString = _configuration.GetConnectionString("DefaultConnection");//lo cambie por DefaultConnection
         using (SqlConnection db = new SqlConnection(connectionString))
         {
             db.Open();

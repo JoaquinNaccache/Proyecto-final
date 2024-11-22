@@ -4,7 +4,8 @@ using Dapper;
 namespace ProyectoFinal1.Models;
 
 public class BD
-{  private static string _connectionString = @"Server=localhost;DataBase=edu+;Trusted_Connection=True;TrustServerCertificate=True;Encrypt=False;";
+{  
+    private static string _connectionString = @"Server=localhost;DataBase=edu+;Trusted_Connection=True;TrustServerCertificate=True;Encrypt=False;";
 
         public static List<Cursos> TraerCursos() 
     {

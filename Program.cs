@@ -9,7 +9,7 @@
 
 // // Add services to the container.
 // builder.Services.AddControllersWithViews();
-// builder.Services.AddSingleton(new Contexto(builder.Configuration.GetConnectionString("conexion")));
+// builder.Services.AddSingleton(new Contexto(builder.Configuration.GetConnectionString("DefaultConnection")));
 // builder.Services.AddAuthenticationDefaults.AuthenticationScheme.AddCookie(option=>{option.LoginPath="/Cuenta/Login";});
 // var app = builder.Build();
 
@@ -43,7 +43,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton(new Contexto(builder.Configuration.GetConnectionString("conexion")));
+builder.Services.AddSingleton(new Contexto(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Configuración de autenticación
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
