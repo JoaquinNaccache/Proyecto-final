@@ -10,6 +10,7 @@ using Dapper;
 using System.Data.SqlClient;  // Importante para SqlConnection
 using Microsoft.Extensions.Configuration; // Importante para IConfiguration
 using Microsoft.Extensions.Configuration;  // Para trabajar con IConfiguration (si aún no lo has hecho)
+using Microsoft.AspNetCore.Mvc.Rendering; // para crear curso
 
 namespace ProyectoFinal1.Controllers
 {
@@ -105,8 +106,22 @@ namespace ProyectoFinal1.Controllers
 
         public IActionResult CrearCurso()
         {
+            // Obtener los profesores válidos (idProfesor entre 3 y 11) con solo el nombre
+            var profesores = BD.Profesores()
+                                .Where(p => p.idProfesor >= 3 && p.idProfesor <= 11)
+                                .Select(p => new 
+                                { 
+                                    p.idProfesor, 
+                                    p.nombreProfesor 
+                                })
+                                .ToList();
+
+            // Crear la lista de SelectList pasando el valor (idProfesor) y el texto (nombreProfesor)
+            ViewBag.Profesores = new SelectList(profesores, "idProfesor", "nombreProfesor");
+
             return View();
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

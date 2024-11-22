@@ -12,6 +12,13 @@
         <p><strong>Nombre:</strong> @Model.nombreUsuario</p>
         <p><strong>Apellido:</strong> @Model.apellido</p>
         <p><strong>Email:</strong> @Model.email</p>
+        @if(@Model.nombreUsuario=="Nicole")
+        {
+            <p><strong>Es administrador</strong></p>
+        }else{
+            <p><strong>Referente de colegio</strong></p>
+
+        }
     </div>
 </body>
 </html>

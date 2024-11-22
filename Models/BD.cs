@@ -17,6 +17,16 @@ public class BD
         }
         return listadocursos;
     }
+       public static List<Profesores> Profesores() 
+    {
+        List<Profesores>  listadoprofesores = null;
+        using(SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Profesores";
+            listadoprofesores = db.Query<Profesores>(sql).ToList();
+        }
+        return listadoprofesores;
+    }
       public static List<Cursos> TraerCursoUnico(int idCurso) 
     {
         List<Cursos>  listadocursos = new List<Cursos>();
