@@ -66,5 +66,17 @@ public static void CrearCurso(string nombreCurso, string descripcion, string tem
     }
 
 }
+
+  // Traer un usuario por su ID
+        public static Usuario TraerUsuarioPorId(int idUsuario)
+        {
+            Usuario usuario = null;
+            using (SqlConnection db = new SqlConnection(_connectionString))
+            {
+                string sql = "SELECT idUsuario, nombreUsuario, apellido, contrasena, email FROM Usuario WHERE idUsuario = @pidUsuario";
+                usuario = db.QueryFirstOrDefault<Usuario>(sql, new { pidUsuario = idUsuario });
+            }
+            return usuario;
+        }
     
 }

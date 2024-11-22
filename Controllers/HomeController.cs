@@ -42,49 +42,43 @@ namespace ProyectoFinal1.Controllers
             return View();
         }
 
-    public IActionResult Perfil()
-{
-    // Obtener el ID del usuario logueado desde los Claims
-    var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-    if (string.IsNullOrEmpty(userId))
+  public IActionResult Perfil()
     {
-        // Si el usuario no está logueado, redirigir al Login
-        return RedirectToAction("Login", "Cuenta");
-    }
+        // Obtener el ID del usuario logueado desde los Claims
+        var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-    try
-    {
-        // Convertir el ID a entero
-        int idUsuario = int.Parse(userId);
-
-        // Conexión a la base de datos
-        using (var con = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+        // Si no hay un ID de usuario (usuario no logueado), redirigir a Login
+        if (string.IsNullOrEmpty(userId))
         {
-            con.Open();
+            return RedirectToAction("Login", "Cuenta");
+        }
 
-            // Consulta para obtener los datos del usuario logueado
-            var usuario = con.QueryFirstOrDefault<Usuario>(
-                "SELECT idUsuario, nombreUsuario, apellido, contrasena, email FROM Usuarios WHERE idUsuario = @Id",
-                new { Id = idUsuario }
-            );
+        try
+        {
+            // Convertir el ID de usuario a entero
+            int idUsuario = int.Parse(userId);
 
-            // Pasar los datos del usuario a la vista
+            // Consultar la base de datos para obtener el usuario usando el ID
+            var usuario = BD.TraerUsuarioPorId(idUsuario);
+
+            // Si se encontró el usuario, pasar los datos a la vista
             if (usuario != null)
             {
-                return View(usuario);
+                return View(usuario); // Devolver la vista con los datos del usuario
+            }
+            else
+            {
+                // Si no se encuentra el usuario, redirigir a la página de login
+                return RedirectToAction("Login", "Cuenta");
             }
         }
+        catch (Exception ex)
+        {
+            // Manejar cualquier error que ocurra durante la consulta
+            _logger.LogError($"Error al cargar el perfil del usuario: {ex.Message}");
+            return RedirectToAction("Login", "Cuenta"); // Redirigir en caso de error
+        }
     }
-    catch (Exception ex)
-    {
-        // Manejo de errores (puedes loguearlo si tienes un logger configurado)
-        _logger.LogError($"Error al cargar el perfil del usuario: {ex.Message}");
-    }
-
-    // Si no se encuentra el usuario, redirigir a Login
-    return RedirectToAction("Login", "Cuenta");
-}
 
 
 
